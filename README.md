@@ -22,7 +22,7 @@ Step 13:Generate the graph using networkx<br/>
 Step 14:Update margins and display the graph using matplotlib.pyplot<br/>
 
 ## Program:
-```
+```python
 import pandas as pd # for data manipulation
 import networkx as nx # for drawing graphs
 import matplotlib.pyplot as plt # for drawing graphs
@@ -46,15 +46,13 @@ df = df.drop(columns='Date')
 
 # For other columns with missing values, fill them in with column mean for numeric columns only
 numeric_columns = df.select_dtypes(include=['number']).columns
-# Use .loc to explicitly modify the original DataFrame
-df.loc[:, numeric_columns] = df[numeric_columns].fillna(df[numeric_columns].mean())
+df[numeric_columns] = df[numeric_columns].fillna(df[numeric_columns].mean())
 
 # Create bands for variables that we want to use in the model
 df['WindGustSpeedCat']=df['WindGustSpeed'].apply(lambda x: '0.<=40'   if x<=40 else
                                                             '1.40-50' if 40<x<=50 else '2.>50')
 df['Humidity9amCat']=df['Humidity9am'].apply(lambda x: '1.>60' if x>60 else '0.<=60')
 df['Humidity3pmCat']=df['Humidity3pm'].apply(lambda x: '1.>60' if x>60 else '0.<=60')
-
 
 # Show a snaphsot of data
 print(df)
@@ -118,6 +116,7 @@ print("H9am->{}".format(probs(df, child='Humidity9amCat')))
 print("H3pm->{}".format(probs(df, child='Humidity3pmCat', parent1='Humidity9amCat')))
 print("W->{}".format(probs(df, child='WindGustSpeedCat')))
 print("RT->{}".format(probs(df, child='RainTomorrow', parent1='Humidity3pmCat', parent2='WindGustSpeedCat')))
+
 ```
 ## Output:
 ![image](https://github.com/user-attachments/assets/4eab5000-c403-4f30-9894-44c6d29ca3a4)
