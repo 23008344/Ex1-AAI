@@ -1,7 +1,7 @@
 <H3> Name: VARNIKA.P </H3>
 <H3>Register No: 212223240170</H3>
 <H3> Experiment 1</H3>
-<H3>DATE:</H3>
+<H3>DATE: 23.04.25</H3>
 <H1 ALIGN=CENTER> Implementation of Bayesian Networks</H1>
 
 ## Aim :
