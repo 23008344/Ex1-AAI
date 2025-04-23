@@ -23,6 +23,8 @@ Step 12:Set options for the graph appearance<br/>
 Step 13:Generate the graph using networkx<br/>
 Step 14:Update margins and display the graph using matplotlib.pyplot<br/>
 
+
+
 ## Program:
 ```python
 import pandas as pd # for data manipulation
@@ -120,6 +122,8 @@ print("W->{}".format(probs(df, child='WindGustSpeedCat')))
 print("RT->{}".format(probs(df, child='RainTomorrow', parent1='Humidity3pmCat', parent2='WindGustSpeedCat')))
 
 ```
+
+
 ## Output:
 ![image](https://github.com/user-attachments/assets/4eab5000-c403-4f30-9894-44c6d29ca3a4)
 
